@@ -2,6 +2,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 
+import { categories } from "@/data/constants" 
+
 export function Model() {
   return (
     <>
@@ -27,22 +29,12 @@ export function Model() {
       </div>
       <div className="flex gap-2 flex-col">
         <p className="text-sm text-gray-500">Catégories</p>
-        <div className="flex items-center space-x-2">
-          <Checkbox id="cat_vt" />
-          <Label htmlFor="cat_vt">Thermique</Label>
-        </div>
-        <div className="flex items-center space-x-2">
-          <Checkbox id="cat_vh" />
-          <Label htmlFor="cat_vh">Hybride</Label>
-        </div>
-        <div className="flex items-center space-x-2">
-          <Checkbox id="cat_vph" />
-          <Label htmlFor="cat_vph">Plug-in Hybride</Label>
-        </div>
-        <div className="flex items-center space-x-2">
-          <Checkbox id="cat_ve" />
-          <Label htmlFor="cat_ve">Électrique</Label>
-        </div>
+        {categories.map((category) => (
+          <div key={category.slug} className="flex items-center space-x-2">
+            <Checkbox id={`cat_v${category.slug}`} />
+            <Label htmlFor={`cat_v${category.slug}`}>{category.name}</Label>
+          </div>
+        ))}
       </div>
       <div className="flex gap-4">
         <div className="grid w-full max-w-sm items-center gap-1.5">
