@@ -8,11 +8,11 @@ export function Model() {
   return (
     <>
       <div className="flex gap-4">
-        <div className="grid w-full max-w-sm items-center gap-1.5">
+        <div className="grid w-full items-center gap-1.5">
           <Label htmlFor="model_name">Modèle</Label>
           <Input type="text" id="model_name" placeholder="Austral" maxlength={50} />
         </div>
-        <div className="grid w-50 max-w-sm items-center gap-1.5">
+        <div className="grid w-50 items-center gap-1.5">
           <Label htmlFor="model_code">Code Modèle</Label>
           <Input type="text" id="model_name" placeholder="RN1" maxlength={3} />
         </div>
@@ -37,11 +37,11 @@ export function Model() {
         ))}
       </div>
       <div className="flex gap-4">
-        <div className="grid w-full max-w-sm items-center gap-1.5">
+        <div className="grid w-full items-center gap-1.5">
           <Label htmlFor="consumption">Consommation</Label>
           <Input type="text" id="consumption" placeholder="4,6 - 4,9" />
         </div>
-        <div className="grid w-full max-w-sm items-center gap-1.5">
+        <div className="grid w-full items-center gap-1.5">
           <Label htmlFor="emission">Emission CO<sub>2</sub></Label>
           <Input type="text" id="emission" placeholder="104 - 110" />
         </div>
