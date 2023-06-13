@@ -1,14 +1,18 @@
 "use client"
 import { useState } from "react";
 
+import { Version } from "@/components/version";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Plus } from 'lucide-react';
 import { X } from 'lucide-react';
 
-interface Version {
+export interface Version {
   id: number;
+  name?: string;
+  motor?: string;
+  priceCatalog?: number;
+  priceFinal?: number;
+  discounts?: Record<string, any>;
 }
 
 export function Versions() {
@@ -31,18 +35,8 @@ export function Versions() {
     <>
       <div className="flex flex-col gap-4">
         {versions.map((version) => (
-          <article key={version.id} className="mb-4 grid w-full items-center gap-1.5 relative">
-            <h2 className="text-sm text-gray-500 pb-1 pt-1">Version {version.id}</h2>
-            <div className="flex gap-4">
-              <div className="grid w-full items-center gap-1.5">
-                <Label htmlFor="version_name">Nom</Label>
-                <Input type="text" id="version_name" placeholder="techno" maxlength={50} />
-              </div>
-              <div className="grid w-full items-center gap-1.5">
-                <Label htmlFor="version_motor">Motorisation</Label>
-                <Input type="text" id="version_motor" placeholder="mild hybrid advanced 130" maxlength={50} />
-              </div>
-            </div>
+          <article key={version.id} className="mb-2 grid w-full items-center gap-1.5 relative border-b pb-8">
+            <Version id={version.id} versions={versions} setVersions={setVersions} />
             <Button 
               className="absolute right-0 top-0" 
               variant="destructive" size="sm"
@@ -50,8 +44,31 @@ export function Versions() {
             ><X className="h-4 w-4" /></Button>
           </article>
         ))}
-        <Button variant="outline" onClick={() => addVersion()}><Plus className="mr-2 h-4 w-4" /> Ajouter une version</Button>
+        <Button className="mt-3" variant="outline" onClick={() => addVersion()}><Plus className="mr-2 h-4 w-4" /> Ajouter une version</Button>
       </div>
+			{/* "catalog_price": 19100,
+			"discounts": {
+				"discount": {
+					"type": "season",
+					"amount": 2750,
+					"legal_slug": "vp-1"
+				},
+				"stock": {
+					"type": "stock",
+					"amount": 550,
+					"legal_slug": "vp-stock"
+				}
+			},
+			"final_price": 15800,
+			"private_lease": null,
+			"financial_leasing": null,
+			"easyfin_type": "3Ways",
+			"easyfin_amount": 399,
+			"easyfin_ballon": 21910,
+			"easyfin_my_warranty": 0,
+			"easyfin_advance": 9324.32,
+			"easyfin_length": 48,
+			"easyfin_extension": 0, */}
     </>
   )
 }
