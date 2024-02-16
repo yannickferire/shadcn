@@ -50,7 +50,7 @@ export default function Home() {
           </TableRow>
           <TableRow>
             <TableCell className="font-medium">Dacia Business BE</TableCell>
-            <TableCell>WIP</TableCell>
+            <TableCell>Ready to go live in 2 days</TableCell>
             <TableCell className="flex items-center text-xs py-6">
               <Avatar className="-mr-2">
                 <AvatarImage src="https://www.challenges.fr/assets/img/2023/04/19/cover-r4x3w1200-643ffc091e5a7-renault-clio-2023.jpg" />
